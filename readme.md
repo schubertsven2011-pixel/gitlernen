@@ -74,3 +74,11 @@ git commit -m "Meine Änderung"
 git push
 
 Das ist der normale Ablauf: Erst aktualisieren, dann ändern, speichern und hochladen.
+
+
+##it branch Listet alle Branches eines Git-Projekts auf.
+
+git branch branch_name: Erstellt einen neuen Zweig.
+git checkout branch_nameWird verwendet, um von einem Zweig zum anderen zu wechseln.
+git merge branch_name: Wird verwendet, um Dateiänderungen von einem Zweig in einen anderen zu übertragen.
+git branch -d branch_nameLöscht den angegebenen Zweig
