@@ -100,3 +100,28 @@ git pull                   # Von GitHub herunterladen
 ```
 
 > **Tipp:** Arbeite für neue Sachen möglichst in einem eigenen Branch und ändere `main` nicht direkt. So sind Fehler leichter rückgängig zu machen und Pull Requests bleiben übersichtlich.
+>
+> # Alle lokalen Branches anzeigen (* markiert den aktiven Branch)
+git branch
+
+# Alle lokalen und entfernten (GitHub-)Branches anzeigen
+git branch -a
+
+# Einen neuen Branch erstellen (ohne sofort dorthin zu wechseln)
+git branch mein-neues-feature
+
+# Zu einem bestehenden Branch wechseln
+git switch mein-neues-feature
+# (Alternativer älterer Befehl: git checkout mein-neues-feature)
+
+# Einen neuen Branch erstellen UND direkt dorthin wechseln
+git switch -c mein-neues-feature
+
+# Änderungen aus einem anderen Branch in den aktuellen Branch zusammenführen
+git merge mein-neues-feature
+
+# Einen Branch löschen (wenn er bereits zusammengeführt wurde)
+git branch -d mein-neues-feature
+
+# Löschen eines Branches erzwingen (falls Änderungen verworfen werden sollen)
+git branch -D mein-neues-feature
