@@ -1,84 +1,134 @@
-# GitHub-Grundbefehle – einfach erklärt
+== GitHub-Basics – einfach erklärt ==
 
-GitHub ist wie ein Online-Speicher für Programmier-Projekte.
-Mit **Git** speicherst du Änderungen auf deinem Computer und lädst sie danach zu GitHub hoch.
+'''Git''' ist ein Werkzeug, das Änderungen an Dateien lokal nachverfolgt und sich merkt. 
+'''GitHub''' ist eine webbasierte Plattform, auf der du Git-Projekte speichern, verwalten und gemeinsam mit anderen im Team daran arbeiten kannst.
 
-## Neues Git-Projekt anlegen
+---
 
-Wenn dein Ordner noch kein Git-Projekt ist, öffne ihn in VS Code und führe im Terminal diese Befehle aus:
+== Repository (Repo) ==
 
-```bash
-git init
-git add .
-git commit -m "GitHub Befehle erweitert"
+Ein Projekt auf GitHub wird als '''Repository''' (kurz: '''Repo''') bezeichnet. Stell dir das wie einen zentralen Projektordner in der Cloud vor – inklusive lückenlosem Versionsverlauf.
 
-git init macht aus dem Ordner ein Git-Projekt. Danach werden mit git add . alle Dateien ausgewählt und mit git commit
-als erster Speicherpunkt gespeichert.
+---
 
-## Projekt herunterladen
+== Wichtige Begriffe ==
 
+{| class="wikitable sortable"
+! Begriff !! Bedeutung
+|-
+| '''Repository''' || Das gesamte Projekt, zum Beispiel eine Website oder ein Software-Skript.
+|-
+| '''Commit''' || Ein gespeicherter Zwischenstand mit einer sprechenden Nachricht, etwa: <tt>„Menü verbessert“</tt>.
+|-
+| '''Branch''' || Eine eigene Arbeitslinie (Zweig). Du kannst in Ruhe etwas ausprobieren, ohne die stabile Hauptversion zu gefährden.
+|-
+| '''main''' || Meist der Standard-Haupt-Branch: die stabile und produktive Version des Projekts.
+|-
+| '''Issue''' || Eine Aufgabe, eine Idee oder eine Fehlermeldung (Bug), zum Beispiel: <tt>„Der Login-Button funktioniert auf Mobilgeräten nicht.“</tt>
+|-
+| '''Pull Request (PR)''' || Eine Anfrage, Änderungen aus einem Entwicklungs-Branch in den <tt>main</tt>-Branch zu übernehmen. Teammitglieder können den Code hier prüfen und kommentieren.
+|-
+| '''Merge''' || Das offizielle Zusammenführen eines Pull Requests in den Haupt-Branch.
+|-
+| '''Fork''' || Deine eigene, unabhängige Kopie eines fremden Repositories auf GitHub (z. B. zum Mitwirken an Open-Source-Projekten).
+|-
+| '''Clone''' || Das vollständige Herunterladen eines GitHub-Repositories auf deinen lokalen PC.
+|-
+| '''Push''' || Das Hochladen deiner lokalen Änderungen zu GitHub.
+|-
+| '''Pull''' || Das Herunterladen von Änderungen von GitHub auf deinen lokalen PC.
+|}
+
+---
+
+== Was kannst du direkt auf der GitHub-Webseite machen? ==
+
+# Ein neues Repository anlegen (<tt>New repository</tt>).
+# Dateien direkt im Browser bearbeiten oder hochladen.
+# Unter '''Issues''' Aufgaben, Ideen und Fehler im Team strukturieren und sammeln.
+# Unter '''Pull requests''' Änderungen vergleichen, im Team besprechen, kommentieren und freigeben.
+# Unter '''Actions''' automatisierte Workflows (z. B. automatisierte Tests oder Deployments) ausführen lassen.
+# Personen einladen und granulare Rechte vergeben, wer das Repository lesen oder bearbeiten darf.
+
+---
+
+== Der normale Arbeitsablauf ==
+
+<pre>
+Issue erstellen
+     ↓
+Branch dafür anlegen
+     ↓
+Dateien ändern
+     ↓
+Commit erstellen
+     ↓
+Push zu GitHub
+     ↓
+Pull Request öffnen
+     ↓
+Prüfen / kommentieren
+     ↓
+Merge nach main
+</pre>
+
+---
+
+== Arbeiten im Terminal ==
+
+Um lokal mit einem Projekt zu arbeiten, nutzt du die folgenden Befehle:
+
+<syntaxhighlight lang="powershell">
+# Ein bestehendes GitHub-Projekt auf deinen PC klonen
 git clone https://github.com/NAME/PROJEKT.git
 
-Damit lädst du ein Projekt von GitHub auf deinen Computer. Den Link findest du auf GitHub unter dem grünen Button
-Code.
-
-## In den Projektordner gehen
-
+# In den neu erstellten Projektordner wechseln
 cd PROJEKT
 
-Damit wechselst du im Terminal in den Ordner des Projekts. Erst dann weiß Git, an welchem Projekt du arbeiten
-möchtest.
-
-## Schauen, was geändert wurde
-
+# Prüfen, welche Dateien sich geändert haben
 git status
 
-Dieser Befehl zeigt dir, welche Dateien du geändert hast. Du kannst nichts kaputtmachen, denn es wird nur
-nachgeschaut.
+# Einen neuen Arbeits-Branch erstellen und direkt dorthin wechseln
+git switch -c mein-neues-feature
 
-## Eine Datei zum Speichern auswählen
-
-git add README.md
-
-Damit sagst du Git: „Diese Datei möchte ich gleich speichern.“
-Wenn du alle geänderten Dateien auswählen möchtest, schreibst du:
-
+# Alle geänderten Dateien für den nächsten Commit vormerken
 git add .
 
-## Änderung speichern
+# Lokalen Zwischenstand mit einer Nachricht speichern
+git commit -m "Kontaktformular hinzugefügt"
 
-git commit -m "Ich habe die Anleitung verbessert"
+# Deinen lokalen Branch zum ersten Mal zu GitHub hochladen
+git push -u origin mein-neues-feature
+</syntaxhighlight>
 
-Ein Commit ist wie ein Speicherpunkt in einem Spiel. Der Text zwischen den Anführungszeichen erklärt, was du gemacht
-hast.
+Nach dem Push zeigt dir GitHub im Browser meist direkt einen Button wie '''Compare & pull request'''. Klicke darauf, beschreibe kurz deine Änderungen und erstelle den Pull Request.
 
-## Zu GitHub hochladen
+=== Änderungen von anderen holen ===
 
-git push
+<syntaxhighlight lang="powershell">
+# Sicherstellen, dass du auf dem Haupt-Branch bist
+git switch main
 
-Damit lädst du deine gespeicherten Änderungen zu GitHub hoch. Danach können andere die neue Version online sehen.
-
-## Neue Änderungen von GitHub holen
-
+# Aktuellen, stabilen Stand von GitHub herunterladen
 git pull
+</syntaxhighlight>
 
-Damit lädst du Änderungen herunter, die andere Leute inzwischen zu GitHub hochgeladen haben. Mache das am besten,
-bevor du selbst mit der Arbeit beginnst.
+---
 
-## Die wichtigsten Befehle zusammen
+== Mini-Spickzettel ==
 
-git pull
-git status
-git add .
-git commit -m "Meine Änderung"
-git push
+{| class="wikitable"
+! Befehl !! Kurzbeschreibung
+|-
+| <tt>git status</tt> || Was wurde verändert? (Übersicht)
+|-
+| <tt>git add .</tt> || Alle Änderungen für den nächsten Commit vormerken
+|-
+| <tt>git commit -m "Nachricht"</tt> || Änderungen lokal mit Beschreibung speichern
+|-
+| <tt>git push</tt> || Lokale Commits zu GitHub hochladen
+|-
+| <tt>git pull</tt> || Änderungen von GitHub herunterladen
+|}
 
-Das ist der normale Ablauf: Erst aktualisieren, dann ändern, speichern und hochladen.
-
-
-##it branch Listet alle Branches eines Git-Projekts auf.
-
-git branch branch_name: Erstellt einen neuen Zweig.
-git checkout branch_nameWird verwendet, um von einem Zweig zum anderen zu wechseln.
-git merge branch_name: Wird verwendet, um Dateiänderungen von einem Zweig in einen anderen zu übertragen.
-git branch -d branch_nameLöscht den angegebenen Zweig
+{{Box|Hinweis|Arbeite bei neuen Funktionen oder Korrekturen möglichst immer in einem '''eigenen Branch''' und ändere den <tt>main</tt>-Branch nicht direkt. Auf diese Weise lassen sich Fehler problemlos isolieren und rückgängig machen, und Pull Requests bleiben übersichtlich.|style=note}}
