@@ -32,7 +32,7 @@ Ein Projekt auf GitHub heißt **Repository**, kurz **Repo**. Stell es dir wie ei
 5. Unter **Actions** automatische Tests oder Veröffentlichungen ausführen lassen.
 6. Andere Personen einladen und festlegen, wer etwas bearbeiten darf.
 
-## Der normale Ablauf
+## Der normale Ablauf.
 
 ```text
 Issue erstellen
