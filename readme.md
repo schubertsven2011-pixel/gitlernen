@@ -1,134 +1,102 @@
-== GitHub-Basics – einfach erklärt ==
+# GitHub-Basics – einfach erklärt
 
-'''Git''' ist ein Werkzeug, das Änderungen an Dateien lokal nachverfolgt und sich merkt. 
-'''GitHub''' ist eine webbasierte Plattform, auf der du Git-Projekte speichern, verwalten und gemeinsam mit anderen im Team daran arbeiten kannst.
+**Git** ist ein Werkzeug, das Änderungen an Dateien merkt.  
+**GitHub** ist eine Webseite, auf der du Git-Projekte speichern und mit anderen zusammenarbeiten kannst.
 
----
+## Repository (Repo)
 
-== Repository (Repo) ==
+Ein Projekt auf GitHub heißt **Repository**, kurz **Repo**. Stell es dir wie einen Projektordner in der Cloud vor – inklusive Versionsverlauf.
 
-Ein Projekt auf GitHub wird als '''Repository''' (kurz: '''Repo''') bezeichnet. Stell dir das wie einen zentralen Projektordner in der Cloud vor – inklusive lückenlosem Versionsverlauf.
+## Wichtige Begriffe
 
----
+| Begriff | Bedeutung |
+| --- | --- |
+| **Repository** | Das gesamte Projekt, zum Beispiel eine Website oder ein Spiel. |
+| **Commit** | Ein gespeicherter Zwischenstand mit einer Nachricht, etwa: „Menü verbessert“. |
+| **Branch** | Eine eigene Arbeitslinie. Du kannst etwas ausprobieren, ohne die Hauptversion kaputtzumachen. |
+| **main** | Meist der Haupt-Branch: die stabile Version des Projekts. |
+| **Issue** | Eine Aufgabe, Idee oder Fehlermeldung, zum Beispiel: „Der Login-Button funktioniert nicht.“ |
+| **Pull Request (PR)** | Eine Anfrage, Änderungen aus einem Branch in `main` zu übernehmen. Andere können den Code ansehen und kommentieren. |
+| **Merge** | Das Zusammenführen eines Pull Requests in den Haupt-Branch. |
+| **Fork** | Deine eigene Kopie eines fremden Repositories auf GitHub. |
+| **Clone** | Ein GitHub-Repository auf deinen PC herunterladen. |
+| **Push** | Deine lokalen Änderungen zu GitHub hochladen. |
+| **Pull** | Änderungen von GitHub auf deinen PC holen. |
 
-== Wichtige Begriffe ==
+## Was kannst du auf der GitHub-Webseite machen?
 
-{| class="wikitable sortable"
-! Begriff !! Bedeutung
-|-
-| '''Repository''' || Das gesamte Projekt, zum Beispiel eine Website oder ein Software-Skript.
-|-
-| '''Commit''' || Ein gespeicherter Zwischenstand mit einer sprechenden Nachricht, etwa: <tt>„Menü verbessert“</tt>.
-|-
-| '''Branch''' || Eine eigene Arbeitslinie (Zweig). Du kannst in Ruhe etwas ausprobieren, ohne die stabile Hauptversion zu gefährden.
-|-
-| '''main''' || Meist der Standard-Haupt-Branch: die stabile und produktive Version des Projekts.
-|-
-| '''Issue''' || Eine Aufgabe, eine Idee oder eine Fehlermeldung (Bug), zum Beispiel: <tt>„Der Login-Button funktioniert auf Mobilgeräten nicht.“</tt>
-|-
-| '''Pull Request (PR)''' || Eine Anfrage, Änderungen aus einem Entwicklungs-Branch in den <tt>main</tt>-Branch zu übernehmen. Teammitglieder können den Code hier prüfen und kommentieren.
-|-
-| '''Merge''' || Das offizielle Zusammenführen eines Pull Requests in den Haupt-Branch.
-|-
-| '''Fork''' || Deine eigene, unabhängige Kopie eines fremden Repositories auf GitHub (z. B. zum Mitwirken an Open-Source-Projekten).
-|-
-| '''Clone''' || Das vollständige Herunterladen eines GitHub-Repositories auf deinen lokalen PC.
-|-
-| '''Push''' || Das Hochladen deiner lokalen Änderungen zu GitHub.
-|-
-| '''Pull''' || Das Herunterladen von Änderungen von GitHub auf deinen lokalen PC.
-|}
+1. Ein neues Repository anlegen (`New repository`).
+2. Dateien direkt bearbeiten oder hochladen.
+3. Unter **Issues** Aufgaben, Ideen und Fehler sammeln.
+4. Unter **Pull requests** Änderungen vergleichen, kommentieren und zusammenführen.
+5. Unter **Actions** automatische Tests oder Veröffentlichungen ausführen lassen.
+6. Andere Personen einladen und festlegen, wer etwas bearbeiten darf.
 
----
+## Der normale Ablauf
 
-== Was kannst du direkt auf der GitHub-Webseite machen? ==
-
-# Ein neues Repository anlegen (<tt>New repository</tt>).
-# Dateien direkt im Browser bearbeiten oder hochladen.
-# Unter '''Issues''' Aufgaben, Ideen und Fehler im Team strukturieren und sammeln.
-# Unter '''Pull requests''' Änderungen vergleichen, im Team besprechen, kommentieren und freigeben.
-# Unter '''Actions''' automatisierte Workflows (z. B. automatisierte Tests oder Deployments) ausführen lassen.
-# Personen einladen und granulare Rechte vergeben, wer das Repository lesen oder bearbeiten darf.
-
----
-
-== Der normale Arbeitsablauf ==
-
-<pre>
+```text
 Issue erstellen
-     ↓
+   ↓
 Branch dafür anlegen
-     ↓
+   ↓
 Dateien ändern
-     ↓
+   ↓
 Commit erstellen
-     ↓
+   ↓
 Push zu GitHub
-     ↓
+   ↓
 Pull Request öffnen
-     ↓
+   ↓
 Prüfen / kommentieren
-     ↓
+   ↓
 Merge nach main
-</pre>
+```
 
----
+## Arbeiten im Terminal
 
-== Arbeiten im Terminal ==
-
-Um lokal mit einem Projekt zu arbeiten, nutzt du die folgenden Befehle:
-
-<syntaxhighlight lang="powershell">
-# Ein bestehendes GitHub-Projekt auf deinen PC klonen
+```powershell
+# Ein bestehendes GitHub-Projekt auf deinen PC holen
 git clone https://github.com/NAME/PROJEKT.git
 
-# In den neu erstellten Projektordner wechseln
+# In den Projektordner wechseln
 cd PROJEKT
 
-# Prüfen, welche Dateien sich geändert haben
+# Prüfen, was sich geändert hat
 git status
 
-# Einen neuen Arbeits-Branch erstellen und direkt dorthin wechseln
+# Einen neuen Arbeits-Branch erstellen und direkt wechseln
 git switch -c mein-neues-feature
 
-# Alle geänderten Dateien für den nächsten Commit vormerken
+# Alle geänderten Dateien zum nächsten Commit vormerken
 git add .
 
-# Lokalen Zwischenstand mit einer Nachricht speichern
+# Zwischenstand speichern
 git commit -m "Kontaktformular hinzugefügt"
 
-# Deinen lokalen Branch zum ersten Mal zu GitHub hochladen
+# Deinen Branch auf GitHub hochladen
 git push -u origin mein-neues-feature
-</syntaxhighlight>
+```
 
-Nach dem Push zeigt dir GitHub im Browser meist direkt einen Button wie '''Compare & pull request'''. Klicke darauf, beschreibe kurz deine Änderungen und erstelle den Pull Request.
+Danach zeigt GitHub meist einen Button wie **Compare & pull request**. Klicke darauf, schreibe kurz, was du geändert hast, und erstelle den Pull Request.
 
-=== Änderungen von anderen holen ===
+## Änderungen von anderen holen
 
-<syntaxhighlight lang="powershell">
-# Sicherstellen, dass du auf dem Haupt-Branch bist
+```powershell
+# Zum Haupt-Branch wechseln
 git switch main
 
-# Aktuellen, stabilen Stand von GitHub herunterladen
+# Aktuellen Stand von GitHub herunterladen
 git pull
-</syntaxhighlight>
+```
 
----
+## Mini-Spickzettel
 
-== Mini-Spickzettel ==
+```powershell
+git status                 # Was ist verändert?
+git add .                  # Änderungen vormerken
+git commit -m "Nachricht"  # Änderungen speichern
+git push                   # Zu GitHub hochladen
+git pull                   # Von GitHub herunterladen
+```
 
-{| class="wikitable"
-! Befehl !! Kurzbeschreibung
-|-
-| <tt>git status</tt> || Was wurde verändert? (Übersicht)
-|-
-| <tt>git add .</tt> || Alle Änderungen für den nächsten Commit vormerken
-|-
-| <tt>git commit -m "Nachricht"</tt> || Änderungen lokal mit Beschreibung speichern
-|-
-| <tt>git push</tt> || Lokale Commits zu GitHub hochladen
-|-
-| <tt>git pull</tt> || Änderungen von GitHub herunterladen
-|}
-
-{{Box|Hinweis|Arbeite bei neuen Funktionen oder Korrekturen möglichst immer in einem '''eigenen Branch''' und ändere den <tt>main</tt>-Branch nicht direkt. Auf diese Weise lassen sich Fehler problemlos isolieren und rückgängig machen, und Pull Requests bleiben übersichtlich.|style=note}}
+> **Tipp:** Arbeite für neue Sachen möglichst in einem eigenen Branch und ändere `main` nicht direkt. So sind Fehler leichter rückgängig zu machen und Pull Requests bleiben übersichtlich.
